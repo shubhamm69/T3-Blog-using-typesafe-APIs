@@ -3,9 +3,11 @@ import Head from "next/head";
 import { useState } from "react";
 import { Header } from "~/components/Header";
 import { api, type RouterOutputs } from "~/utils/api";
+
 type Topic = RouterOutputs["topic"]["getAll"][0];
 
 export default function Home() {
+  const { data: sessionData } = useSession();
   return (
     <>
       <Head>
@@ -15,7 +17,11 @@ export default function Home() {
       </Head>
       <main className="max-h-max min-h-screen bg-gray-950">
         <Header />
-        <Content />
+        {sessionData ? (
+          <Content />
+        ) : (
+          <div className="text-3xl mt-16 text-center">User not logged in</div>
+        )}
       </main>
     </>
   );
