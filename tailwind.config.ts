@@ -5,5 +5,17 @@ export default {
   theme: {
     extend: {},
   },
+  daisyui: {
+    themes: [
+      "cyberpunk",
+      "corporate",
+      "aqua",
+      "cupcake",
+      "bumblebee",
+      "emerald",
+      "fantasy",
+      "winter",
+    ],
+  },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
 } satisfies Config;
